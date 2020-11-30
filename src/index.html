@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/styles/main.css">
+    <link rel="stylesheet" href="../public/styles/player.css" media="all">
+</head>
+<body>
+    <main>
+        
+        <div class="player" id="player-1">
+            
+            <audio src="../public/music/piccolo-and-a-cane.mp3">
+            </audio>
+            
+            <div class="controls">
+                <!-- <button class="action pause">[ Pause ]</button> -->
+                
+                <button class="action backward">
+                    <img src="../public/assets/backward.svg" alt="voltar">
+                </button>
+
+                <button class="action play-pause">
+                    <img src="../public/assets/play.svg" alt="voltar">
+                </button>
+                
+                <button class="action forward">
+                    <img src="../public/assets/forward.svg" alt="avancar">
+                </button>
+            </div>
+
+            <div class="text-wrapper">
+                <h1>Music title</h1>
+                <h2>Music autor</h2>
+                <div class="progress-bar">
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="../public/scripts/player.js"></script>
+    <script>
+        const p1 = new Player({ playerId: 'player-1' })
+        const p2 = new Player({ playerId: 'player-2' })
+    </script>
+</body>
+</html>

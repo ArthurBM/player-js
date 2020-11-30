@@ -1,0 +1,16 @@
+{
+  "name": "player-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Arthur Brito <arthurmedeiros32@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "nodemon ./src/api/server.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.0"
+  }
+}

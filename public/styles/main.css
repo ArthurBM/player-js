@@ -1,0 +1,28 @@
+:root {
+    --bege: #B7AB9D;
+    --preto: #35363A;
+    --rose: #D6C2B7;
+    --cinza: #E7E9E6;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background: #f0f0f5; */
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+}
+a {
+    text-decoration: none;
+}
+
+/* h1, h2, h3, h4, h5, h6, p {
+    color: var(--cinza);
+} */
