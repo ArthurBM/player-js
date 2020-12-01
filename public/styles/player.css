@@ -26,7 +26,7 @@ main {
 }
 
 .action {
-    padding: 1em;
+    padding: 0.5em;
     cursor: pointer;
     font: inherit;
     background: transparent;
@@ -35,12 +35,14 @@ main {
 }
 .progress-bar-wrapper {
     margin-top: 20px;
-    background: rgba(196, 196, 196, 0.26);
+    /* background: rgba(196, 196, 196, 0.26); */
     height: 10px;
     width: 100%;
     display: flex;
     align-items: center;
-    cursor: pointer;
+    justify-content: space-between;
+    /* flex: 1; */
+    /* cursor: pointer; */
 }
 
 .progress-bar {
@@ -65,6 +67,10 @@ h2 {
     font-weight: 300;
 }
 
+h2 + h2 {
+    margin-top: 10px;
+}
+
 .player .controls .action img {
     width: 29px;
     height: 22px;
@@ -80,7 +86,7 @@ main .player .text-icon-bar-wrapper {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
 }
 
 .text-icon-wrapper {
@@ -94,3 +100,16 @@ main .player .text-icon-bar-wrapper {
     width: 78px;
     height: 41px;
 }
+
+.time-stamp {
+    font-size: 20px;
+}
+
+#seekbar {
+    
+    /* -webkit-appearance: none; */
+    background-color: rgba(196, 196, 196, 0.26);
+    width: 80%;
+    overflow: hidden;
+}
+

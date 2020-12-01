@@ -13,4 +13,4 @@ fs.readdirSync(musicsFolder).forEach(file => {
     musicNames.push(file);
 });
 
-console.log(musicNames);
+export default musicNames;

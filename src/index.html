@@ -37,20 +37,23 @@
                     <div class="text-wrapper">
                         <h1>Music title</h1>
                         <h2>Music autor</h2>
-                        <h2 class="time-stamp">0:00</h2>
+                        
                     </div>
                     <img src="../public/assets/logo_CITi.png" alt="logo_CITi">
                 </div>
                 <div class="progress-bar-wrapper">
-                    <div class="progress-bar">
+                    <h2 class="time-stamp">00:00</h2>
+                    <input type="range" min="0" max="0" id="seekbar" step="1"> 
+                    <h2 class="time-stamp">00:00</h2>
+                    <!-- <div class="progress-bar">
                     </div>
-                    <span class="ball-progress-bar"></span>
+                    <span class="ball-progress-bar"></span> -->
                 </div>
             </div>
 
         </div>
     </main>
-    <script src="../public/scripts/player.js"></script>
+    <script src="../public/scripts/player.js" type="module"></script>
     <script src="../public/scripts/mp3data.js"></script>
     <script>
         const p1 = new Player({ playerId: 'player-1' })
