@@ -18,12 +18,14 @@ export default class Player {
       this.timeStampTotal = document.querySelector('.time-stamp#total');
       //this.progressBarWrapper = document.querySelector('.progress-bar-wrapper');
       this.seekBar  = document.querySelector('#seekbar');
+      this.musicTitle = document.querySelector('.music-title');
+      this.musicAuthor = document.querySelector('.music-author');
       
 
       this.isPlaying = false;
 
       this.indexMusic = 0;
-  
+      this.initialize();
       this.handleEventListeners();
       
     }
@@ -42,7 +44,8 @@ export default class Player {
     //}
 
     initialize() {
-      
+      this.musicTitle.innerText = musics[this.indexMusic].title;
+      this.musicAuthor.innerText = musics[this.indexMusic].author;
     }
 
     handleEventListeners(){
