@@ -1,5 +1,6 @@
 //import musicNames from "./mp3data.js";
 import elements from "./elements.js";
+import musics from "./data.js"
 
 export default class Player {
     constructor({ playerId }){
@@ -20,11 +21,11 @@ export default class Player {
       
 
       this.isPlaying = false;
+
+      this.indexMusic = 0;
   
       this.handleEventListeners();
-      this.audioElement.onloadeddata = () => {
-        this.actions();
-      };
+      
     }
     smartTime() {
       return time < 10 ? "0" + time.toString().trim() : time;
@@ -34,10 +35,14 @@ export default class Player {
       this.audioElement.currentTime = value;
     }
 
-    actions() {
-      this.seekBar.oninput() = () => this.setSeek(this.seekBar.value);
-      this.seekBar.onchange() = () => this.setSeek(this.seekBar.value);
-      this.seekBar.max = this.audioElement.duration 
+    //actions() {
+    //  this.seekBar.oninput() = () => this.setSeek(this.seekBar.value);
+    //  this.seekBar.onchange() = () => this.setSeek(this.seekBar.value);
+    //  this.seekBar.max = this.audioElement.duration 
+    //}
+
+    initialize() {
+      
     }
 
     handleEventListeners(){
@@ -56,22 +61,29 @@ export default class Player {
       });
   
       this.forwardBtn.addEventListener('click', () => {
-        this.audioElement.currentTime += 10;
+        this.audioElement.src = musics[this.indexMusic + 1].file;
+        this.indexMusic++;
+        this.audioElement.play();
         this.seekBar.max = this.audioElement.duration;
       });
   
       this.backwardBtn.addEventListener('click', () => {
-        this.audioElement.currentTime -= 10;
+        if (this.indexMusic !== 0) {
+          this.audioElement.src = musics[this.indexMusic - 1].file;
+          this.indexMusic--;
+          this.audioElement.play();
+        }
         this.seekBar.max = this.audioElement.duration;
       });
   
-       this.audioElement.addEventListener('timeupdate', () => {
+      this.audioElement.addEventListener('timeupdate', () => {
          const {
            currentTime,
            duration
          } = this.audioElement;
          let currentSeconds, currentMinutes, totalMinutes, totalSeconds;
          this.seekBar.value = currentTime;
+         
          currentMinutes = Math.floor(currentTime / 60);
          currentSeconds = Math.floor(currentTime % 60);
          totalMinutes = Math.floor(duration / 60);
@@ -82,32 +94,6 @@ export default class Player {
          
       });
 
-      this.seekBar.addEventListener('click', () => {
-
-      })
-
-      // this.progressBarWrapper.addEventListener('click', (event) => {
-      //   let clickedPosition = event.clientX - event.target.offsetLeft;
-      //   this.audioElement.currentTime = (clickedPosition / event.target.offsetWidth) * this.audioElement.duration;
-      // })
-
-      // this.audioElement.addEventListener('timeupdate', () => {
-      //   let currentMinutes,currentSeconds,totalMinutes,totalSeconds;
-      //   // let {
-      //   //   currentTime,
-      //   // } = this.audioElement;
-        
-      //   currentMinutes = this.smartTime(Math.floor((this.audioElement.currentTime / 60)));
-      //   totalMinutes = this.smartTime(Math.floor(this.audioElement.duration / 60));
-      //   currentSeconds = this.smartTime(Math.floor(this.audioElement.currentTime % 60));
-      //   totalSeconds = this.smartTime(Math.floor(this.audioElement.duration % 60));
-
-      //   let currentTime = currentMinutes + ":" + currentSeconds;
-      //   let totalTime = totalMinutes + ":" + totalSeconds;
-
-      //   this.timeStamp.innerHTML = currentTime + " / " + totalTime;
-        
-      // })
 
     }
   }
