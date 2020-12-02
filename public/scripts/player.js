@@ -44,6 +44,11 @@ export default class Player {
     //}
 
     initialize() {
+      this.updateMusicTitleAuhthor();
+      this.seekBar.max = this.audioElement.duration;
+    }
+
+    updateMusicTitleAuhthor() {
       this.musicTitle.innerText = musics[this.indexMusic].title;
       this.musicAuthor.innerText = musics[this.indexMusic].author;
     }
@@ -64,10 +69,13 @@ export default class Player {
       });
   
       this.forwardBtn.addEventListener('click', () => {
-        this.audioElement.src = musics[this.indexMusic + 1].file;
-        this.indexMusic++;
-        this.audioElement.play();
-        this.seekBar.max = this.audioElement.duration;
+        if (this.indexMusic < musics.length - 1) {
+          this.audioElement.src = musics[this.indexMusic + 1].file;
+          this.indexMusic++;
+          this.audioElement.play();
+          this.seekBar.max = this.audioElement.duration;
+          this.updateMusicTitleAuhthor();
+        }
       });
   
       this.backwardBtn.addEventListener('click', () => {
@@ -75,6 +83,7 @@ export default class Player {
           this.audioElement.src = musics[this.indexMusic - 1].file;
           this.indexMusic--;
           this.audioElement.play();
+          this.updateMusicTitleAuhthor();
         }
         this.seekBar.max = this.audioElement.duration;
       });
