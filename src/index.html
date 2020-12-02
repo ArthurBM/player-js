@@ -42,9 +42,9 @@
                     <img src="../public/assets/logo_CITi.png" alt="logo_CITi">
                 </div>
                 <div class="progress-bar-wrapper">
-                    <h2 class="time-stamp">00:00</h2>
+                    <h2 class="time-stamp" id="current">00:00</h2>
                     <input type="range" min="0" max="0" id="seekbar" step="1"> 
-                    <h2 class="time-stamp">00:00</h2>
+                    <h2 class="time-stamp" id="total">00:00</h2>
                     <!-- <div class="progress-bar">
                     </div>
                     <span class="ball-progress-bar"></span> -->
@@ -53,10 +53,8 @@
 
         </div>
     </main>
-    <script src="../public/scripts/player.js" type="module"></script>
+    <script src="../public/scripts/index.js" type="module"></script>
     <!-- <script src="../public/scripts/mp3data.js"></script> -->
-    <script>
-        const p1 = new Player({ playerId: 'player-1' })
-    </script>
+    
 </body>
 </html>
