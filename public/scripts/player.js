@@ -29,7 +29,7 @@ export default class Player {
       this.handleEventListeners();
       
     }
-    smartTime() {
+    smartTime(time) {
       return time < 10 ? "0" + time.toString().trim() : time;
     }
 
@@ -96,16 +96,20 @@ export default class Player {
          let currentSeconds, currentMinutes, totalMinutes, totalSeconds;
          this.seekBar.value = currentTime;
          
-         currentMinutes = Math.floor(currentTime / 60);
-         currentSeconds = Math.floor(currentTime % 60);
-         totalMinutes = Math.floor(duration / 60);
-         totalSeconds = Math.floor(duration % 60);
+         currentMinutes = this.smartTime(Math.floor(currentTime / 60)) ;
+         currentSeconds = this.smartTime(Math.floor(currentTime % 60));
+         totalMinutes = this.smartTime(Math.floor(duration / 60));
+         totalSeconds = this.smartTime(Math.floor(duration % 60));
 
          this.timeStampCurrent.innerText = currentMinutes + ":" + currentSeconds;
          this.timeStampTotal.innerText = totalMinutes + ":" + totalSeconds;
          
       });
 
+      this.seekBar.addEventListener('input', () => {
+        // this.setSeek(this.seekBar.value);
+        this.audioElement.currentTime = this.seekBar.value;
+      })
 
     }
   }
