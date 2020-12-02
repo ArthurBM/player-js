@@ -1,21 +1,21 @@
 const musics = [
     {
-        title: "Generic roock",
-        author: "that one 1",
-        file: "../public/music/generic-rock-loop.mp3",
+        title: "Blinding Lights",
+        author: "The Weeknd",
+        file: "../public/music/09 Blinding Lights.mp3",
         image: "../public/assets/blinding_lights.jpg"
     },
     {
-        title: "Get the guy",
-        author: "that one 2",
-        file: "../public/music/get-the-guy-with-the-stash.mp3",
+        title: "Infinita highway",
+        author: "Engenheiros do Hawai",
+        file: "../public/music/03 Infinita Highway.mp3",
         image: "../public/assets/highway.jpeg"
     },
     {
         title: "Piccolo",
         author: "that one 3",
-        file: "../public/music/piccolo-and-a-cane.mp3",
-        image: "../public/assets/patience.jpeg"
+        file: "../public/music/12 Deixa Acontecer.mp3",
+        image: "../public/assets/revelacao.jpg"
     },
 ];
 
