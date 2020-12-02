@@ -12,8 +12,8 @@ const musics = [
         image: "../public/assets/highway.jpeg"
     },
     {
-        title: "Piccolo",
-        author: "that one 3",
+        title: "Deixa acontecer",
+        author: "Banda revelação",
         file: "../public/music/12 Deixa Acontecer.mp3",
         image: "../public/assets/revelacao.jpg"
     },

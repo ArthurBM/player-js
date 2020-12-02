@@ -1,5 +1,4 @@
 //import musicNames from "./mp3data.js";
-import elements from "./elements.js";
 import musics from "./data.js"
 
 export default class Player {
@@ -34,9 +33,6 @@ export default class Player {
       return time < 10 ? "0" + time.toString().trim() : time;
     }
 
-    setSeek(value) {
-      this.audioElement.currentTime = value;
-    }
 
     //actions() {
     //  this.seekBar.oninput() = () => this.setSeek(this.seekBar.value);
@@ -49,6 +45,18 @@ export default class Player {
       this.seekBar.max = this.audioElement.duration;
     }
 
+    play() {
+      this.audioElement.play();
+      this.imgPlayPause.src = "../public/assets/stop.svg"
+      this.isPlaying = true;
+    }
+
+    pause() {
+      this.audioElement.pause();
+      this.imgPlayPause.src = "../public/assets/play.svg",
+      this.isPlaying = false;
+    }
+
     updateMusicTitleAuhthor() {
       this.musicTitle.innerText = musics[this.indexMusic].title;
       this.musicAuthor.innerText = musics[this.indexMusic].author;
@@ -59,14 +67,10 @@ export default class Player {
 
       this.playBtn.addEventListener('click', () => {
         if (this.audioElement.paused){
-            this.audioElement.play();
-            this.imgPlayPause.src = "../public/assets/stop.svg"
-            this.isPlaying = true;
+            this.play();
         }
         else {
-            this.audioElement.pause();
-            this.imgPlayPause.src = "../public/assets/play.svg",
-            this.isPlaying = false;
+            this.pause();
         }
       });
   
@@ -74,7 +78,7 @@ export default class Player {
         if (this.indexMusic < musics.length - 1) {
           this.audioElement.src = musics[this.indexMusic + 1].file;
           this.indexMusic++;
-          this.audioElement.play();
+          this.play();
           this.updateMusicTitleAuhthor();
           this.seekBar.max = this.audioElement.duration;
         }
@@ -84,7 +88,7 @@ export default class Player {
         if (this.indexMusic !== 0) {
           this.audioElement.src = musics[this.indexMusic - 1].file;
           this.indexMusic--;
-          this.audioElement.play();
+          this.play();
           this.updateMusicTitleAuhthor();
         }
         this.seekBar.max = this.audioElement.duration;
@@ -109,7 +113,10 @@ export default class Player {
       });
 
       this.seekBar.addEventListener('input', () => {
-        // this.setSeek(this.seekBar.value);
+        this.audioElement.currentTime = this.seekBar.value;
+      })
+
+      this.seekBar.addEventListener('click', () => {
         this.audioElement.currentTime = this.seekBar.value;
       })
 
