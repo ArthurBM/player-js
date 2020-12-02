@@ -2,6 +2,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
     background-color: #6800E4;
@@ -108,3 +109,6 @@ main .player .text-icon-bar-wrapper {
     overflow: hidden;
 }
 
+.music_img {
+    width: 40%;
+}

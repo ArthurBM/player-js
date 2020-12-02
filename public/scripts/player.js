@@ -20,6 +20,7 @@ export default class Player {
       this.seekBar  = document.querySelector('#seekbar');
       this.musicTitle = document.querySelector('.music-title');
       this.musicAuthor = document.querySelector('.music-author');
+      this.musicImg = document.querySelector(".music_img");
       
 
       this.isPlaying = false;
@@ -51,6 +52,7 @@ export default class Player {
     updateMusicTitleAuhthor() {
       this.musicTitle.innerText = musics[this.indexMusic].title;
       this.musicAuthor.innerText = musics[this.indexMusic].author;
+      this.musicImg.src = musics[this.indexMusic].image;
     }
 
     handleEventListeners(){
@@ -73,8 +75,8 @@ export default class Player {
           this.audioElement.src = musics[this.indexMusic + 1].file;
           this.indexMusic++;
           this.audioElement.play();
-          this.seekBar.max = this.audioElement.duration;
           this.updateMusicTitleAuhthor();
+          this.seekBar.max = this.audioElement.duration;
         }
       });
   
