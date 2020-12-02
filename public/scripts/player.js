@@ -41,7 +41,7 @@ export default class Player {
     //}
 
     initialize() {
-      this.updateMusicTitleAuhthor();
+      this.updateMusic();
       this.seekBar.max = this.audioElement.duration;
     }
 
@@ -57,7 +57,7 @@ export default class Player {
       this.isPlaying = false;
     }
 
-    updateMusicTitleAuhthor() {
+    updateMusic() {
       this.musicTitle.innerText = musics[this.indexMusic].title;
       this.musicAuthor.innerText = musics[this.indexMusic].author;
       this.musicImg.src = musics[this.indexMusic].image;
@@ -76,22 +76,20 @@ export default class Player {
   
       this.forwardBtn.addEventListener('click', () => {
         if (this.indexMusic < musics.length - 1) {
-          this.audioElement.src = musics[this.indexMusic + 1].file;
           this.indexMusic++;
+          this.audioElement.src = musics[this.indexMusic].file;
+          this.updateMusic();
           this.play();
-          this.updateMusicTitleAuhthor();
-          this.seekBar.max = this.audioElement.duration;
         }
       });
   
       this.backwardBtn.addEventListener('click', () => {
         if (this.indexMusic !== 0) {
-          this.audioElement.src = musics[this.indexMusic - 1].file;
           this.indexMusic--;
+          this.audioElement.src = musics[this.indexMusic].file;
           this.play();
-          this.updateMusicTitleAuhthor();
+          this.updateMusic();
         }
-        this.seekBar.max = this.audioElement.duration;
       });
   
       this.audioElement.addEventListener('timeupdate', () => {
@@ -109,6 +107,8 @@ export default class Player {
 
          this.timeStampCurrent.innerText = currentMinutes + ":" + currentSeconds;
          this.timeStampTotal.innerText = totalMinutes + ":" + totalSeconds;
+
+         this.seekBar.max = this.audioElement.duration;
          
       });
 
@@ -116,9 +116,7 @@ export default class Player {
         this.audioElement.currentTime = this.seekBar.value;
       })
 
-      this.seekBar.addEventListener('click', () => {
-        this.audioElement.currentTime = this.seekBar.value;
-      })
+      
 
     }
   }
